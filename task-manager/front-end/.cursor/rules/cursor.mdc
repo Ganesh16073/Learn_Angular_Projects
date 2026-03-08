@@ -1,0 +1,169 @@
+---
+context: true
+priority: high
+scope: project
+---
+
+You are an expert in TypeScript, Angular, and scalable web application development. You write maintainable, performant, and accessible code following Angular and TypeScript best practices.
+
+## TypeScript Best Practices
+
+- Use strict type checking
+- Prefer type inference when the type is obvious
+- Avoid the `any` type; use `unknown` when type is uncertain
+- Use union types and discriminated unions for better type safety
+- Leverage utility types (`Partial`, `Pick`, `Omit`, `Record`, etc.)
+- Use `const` assertions for literal types
+- Prefer interfaces over type aliases for object shapes
+- Use `readonly` modifier for immutable properties
+- Implement proper error types and custom error classes
+
+## Angular Best Practices
+
+- Always use standalone components over NgModules
+- Must NOT set `standalone: true` inside Angular decorators. It's the default.
+- Use signals for state management
+- Implement lazy loading for feature routes
+- Do NOT use the `@HostBinding` and `@HostListener` decorators. Put host bindings inside the `host` object of the `@Component` or `@Directive` decorator instead
+- Use `NgOptimizedImage` for all static images.
+  - `NgOptimizedImage` does not work for inline base64 images.
+- Implement proper route guards and resolvers
+- Use Angular's built-in dependency injection system effectively
+- Leverage Angular's HTTP client with interceptors for cross-cutting concerns
+
+## Components
+
+- Keep components small and focused on a single responsibility
+- Use `input()` and `output()` functions instead of decorators
+- Use `computed()` for derived state
+- Set `changeDetection: ChangeDetectionStrategy.OnPush` in `@Component` decorator
+- Prefer inline templates for small components
+- Prefer Reactive forms instead of Template-driven ones
+- Do NOT use `ngClass`, use `class` bindings instead
+- Do NOT use `ngStyle`, use `style` bindings instead
+- Implement proper component lifecycle management
+- Use `effect()` for side effects that don't update the template
+- Avoid direct DOM manipulation; use Angular's renderer or directives
+
+## State Management
+
+- Use signals for local component state
+- Use `computed()` for derived state
+- Keep state transformations pure and predictable
+- Do NOT use `mutate` on signals, use `update` or `set` instead
+- Consider NgRx or Akita for complex application state
+- Use RxJS operators for complex async state transformations
+- Implement proper state immutability patterns
+
+## Templates
+
+- Keep templates simple and avoid complex logic
+- Use native control flow (`@if`, `@for`, `@switch`) instead of `*ngIf`, `*ngFor`, `*ngSwitch`
+- Use the async pipe to handle observables
+- Leverage template reference variables sparingly
+- Use pipe operators for data transformations in templates
+- Implement proper loading and error states in templates
+
+## Services
+
+- Design services around a single responsibility
+- Use the `providedIn: 'root'` option for singleton services
+- Use the `inject()` function instead of constructor injection
+- Implement proper error handling in services
+- Use RxJS for asynchronous operations
+- Cache data appropriately to improve performance
+
+## Testing Best Practices
+
+- Write unit tests for all components, services, and utilities
+- Use Angular Testing Library for component testing
+- Mock dependencies and external services in tests
+- Test both success and error scenarios
+- Use `TestBed` for integration tests
+- Implement end-to-end tests with Cypress or Playwright for critical user flows
+- Follow the AAA pattern (Arrange, Act, Assert) in tests
+- Use descriptive test names and organize tests logically
+
+## Performance Optimization
+
+- Use `OnPush` change detection strategy
+- Implement lazy 
+loading for routes and modules
+- Use `trackBy` function in `*ngFor` directives
+- Optimize bundle size with tree shaking
+- Implement virtual scrolling for large lists
+- Use Angular's built-in performance tools (NgProfiler)
+- Cache HTTP responses appropriately
+- Debounce user input to reduce unnecessary API calls
+
+## Accessibility (a11y)
+
+- Use semantic HTML elements
+- Implement proper ARIA attributes
+- Ensure keyboard navigation support
+- Provide alternative text for images
+- Maintain proper color contrast ratios
+- Use Angular CDK's a11y utilities
+- Test with screen readers and keyboard-only navigation
+
+## Error Handling
+
+- Implement global error handling with `ErrorHandler`
+- Use proper HTTP error interceptors
+- Provide user-friendly error messages
+- Log errors appropriately for debugging
+- Implement retry logic for transient failures
+- Use Angular's built-in error boundaries
+
+## Code Organization
+
+- Follow Angular's official file naming conventions
+- Organize code by feature modules
+- Use index.ts files for clean imports
+- Implement barrel exports for related functionality
+- Separate concerns with proper folder structure
+- Use shared modules for common functionality
+
+## RxJS Best Practices
+
+- Use appropriate operators for different scenarios
+- Implement proper subscription management
+- Use `async` pipe to automatically handle subscriptions
+- Prefer operators over manual subscription handling
+- Use `shareReplay` for caching observable results
+- Implement proper error handling in observable chains
+
+## HTTP Client Best Practices
+
+- Use interceptors for authentication, logging, and error handling
+- Implement proper request/response typing
+- Use appropriate HTTP methods (GET, POST, PUT, DELETE)
+- Handle loading states and errors gracefully
+- Implement caching strategies when appropriate
+- Use retry logic for failed requests
+
+## Security
+
+- Validate and sanitize user inputs
+- Use Angular's built-in XSS protection
+- Implement proper authentication and authorization
+- Avoid storing sensitive data in localStorage
+- Use HTTPS for all communications
+- Implement Content Security Policy (CSP) headers
+
+## Internationalization (i18n)
+
+- Use Angular's i18n tools for localization
+- Extract translatable text properly
+- Support RTL languages when necessary
+- Format dates, numbers, and currencies appropriately
+- Test with different locales and languages
+
+## CSS/SCSS Best Practices
+
+- Use CSS custom properties (variables) for theming
+- Implement BEM or similar naming methodology
+- Use SCSS mixins and functions for reusable styles
+- Avoid deep CSS selectors
+- Implement responsive design patterns
+- Use Angular's `::ng-deep` sparingly and with caution
